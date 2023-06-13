@@ -20,3 +20,30 @@
 
 **Step7:** Now launch the child application as Java Application, It should successfully started.
 
+
+**Step8:** Open the pom.xml of child app and add the following by replacing existing:
+
+```
+<parent>
+	<groupId>com.ssk.parent</groupId>
+	<artifactId>spring_bean_life_cycle_demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</parent>
+```
+
+**Step9:** In the pom.xml of child app and remove the version of child app as it is duplicate to parent:
+
+```
+<version>0.0.1-SNAPSHOT</version>
+```
+
+
+**Step10:** Open the pom.xml of parent app and add the following:
+
+```
+<packaging>pom</packaging>
+
+<modules>
+	<module>sblc_with_xml_config_demo</module>
+</modules>
+```

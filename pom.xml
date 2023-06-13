@@ -11,6 +11,7 @@
 	<groupId>com.ssk.parent</groupId>
 	<artifactId>spring_bean_life_cycle_demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>spring_bean_life_cycle_demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -38,4 +39,7 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>sblc_with_xml_config_demo</module>
+	</modules>
 </project>
