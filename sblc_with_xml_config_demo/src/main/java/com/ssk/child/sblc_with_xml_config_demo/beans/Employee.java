@@ -1,5 +1,8 @@
 package com.ssk.child.sblc_with_xml_config_demo.beans;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -49,6 +52,16 @@ public class Employee implements InitializingBean, DisposableBean {
 		this.address = address;
 	}
 
+	@PostConstruct
+	public void postInit() {
+		System.out.println("@PostConstruct method for employee");
+	}
+
+	@PreDestroy
+	public void preDestroy() {
+		System.out.println("@PreDestroy method for employee");
+	}
+
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("InitializingBean::afterPropertiesSet()");
@@ -58,11 +71,11 @@ public class Employee implements InitializingBean, DisposableBean {
 	public void destroy() throws Exception {
 		System.out.println("DisposableBean::destroy() for employee");
 	}
-	
+
 	public void initMethod() {
 		System.out.println("Custom init method for employee");
 	}
-	
+
 	public void destroyMethod() {
 		System.out.println("Custom destroy method for employee");
 	}

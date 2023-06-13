@@ -1,5 +1,8 @@
 package com.ssk.child.sblc_with_xml_config_demo.beans;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -68,12 +71,14 @@ public class Address implements InitializingBean, DisposableBean {
 		System.out.println("DisposableBean::destroy() for address");
 	}
 
+	@PostConstruct
 	public void initMethod() {
-		System.out.println("Custom init method for address");
+		System.out.println("@PostConstruct + Custom init method for address");
 	}
 
+	@PreDestroy
 	public void destroyMethod() {
-		System.out.println("Custom destroy method for address");
+		System.out.println("@PreDestroy + Custom destroy method for address");
 	}
 
 }

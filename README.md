@@ -1,6 +1,6 @@
 # spring_bean_life_cycle_demo
 
-Spring Bean Life Cycle
+**Spring Bean Life Cycle**
 - Application is started.
 - Spring container is created.
 - Container reads configuration.
@@ -18,6 +18,26 @@ Spring Bean Life Cycle
 - @PreDestroy method gets called.
 - DisposableBean::destroy method gets called.
 - @Bean(destroyMethod) method gets called.
+
+--- 
+
+**Notes:**
+
+As of Spring 2.5, you have three options for controlling bean life cycle behavior:
+  - The InitializingBean and DisposableBean callback interfaces
+  - Custom init() and destroy() methods
+  - The @PostConstruct and @PreDestroy annotations<br />
+  You can combine these mechanisms to control a given bean.<br />
+  
+Multiple life cycle mechanisms configured for the same bean, with different initialization methods, are called as follows:
+  - Methods annotated with @PostConstruct
+  - afterPropertiesSet() as defined by the InitializingBean callback interface
+  - A custom configured init() method<br />
+
+Destroy methods are called in the same order:
+  - Methods annotated with @PreDestroy
+  - destroy() as defined by the DisposableBean callback interface
+  - A custom configured destroy() method
 
 ---
 
