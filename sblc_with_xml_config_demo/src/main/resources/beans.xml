@@ -7,7 +7,8 @@
 	<!-- bean definitions here -->
 	<beans>
 		<bean id="employee"
-			class="com.ssk.child.sblc_with_xml_config_demo.beans.Employee">
+			class="com.ssk.child.sblc_with_xml_config_demo.beans.Employee"
+			init-method="initMethod" destroy-method="destroyMethod">
 			<constructor-arg value="1"></constructor-arg>
 			<constructor-arg value="Sagar Khati"></constructor-arg>
 			<constructor-arg value="Male"></constructor-arg>
@@ -17,7 +18,8 @@
 		</bean>
 
 		<bean id="address"
-			class="com.ssk.child.sblc_with_xml_config_demo.beans.Address">
+			class="com.ssk.child.sblc_with_xml_config_demo.beans.Address"
+			init-method="initMethod" destroy-method="destroyMethod">
 			<property name="id">
 				<value>1</value>
 			</property>
@@ -31,6 +33,12 @@
 				<value>110011</value>
 			</property>
 		</bean>
+
+		<bean id="customBeanFactoryPostProcessor"
+			class="com.ssk.child.sblc_with_xml_config_demo.CustomBeanFactoryPostProcessor"></bean>
+
+		<bean id="customBeanPostProcessor"
+			class="com.ssk.child.sblc_with_xml_config_demo.CustomBeanPostProcessor"></bean>
 	</beans>
 
 </beans>

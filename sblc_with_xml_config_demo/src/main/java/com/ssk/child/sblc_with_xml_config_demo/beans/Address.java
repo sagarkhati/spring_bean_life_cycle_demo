@@ -1,6 +1,9 @@
 package com.ssk.child.sblc_with_xml_config_demo.beans;
 
-public class Address {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Address implements InitializingBean, DisposableBean {
 	private int id;
 	private String city;
 	private String country;
@@ -8,6 +11,7 @@ public class Address {
 
 	public Address() {
 		super();
+		System.out.println("Properties and Dependencies are set for Address.");
 	}
 
 	public Address(int id, String city, String country, int pinCode) {
@@ -23,6 +27,7 @@ public class Address {
 	}
 
 	public void setId(int id) {
+		System.out.println("Setting address id");
 		this.id = id;
 	}
 
@@ -31,6 +36,7 @@ public class Address {
 	}
 
 	public void setCity(String city) {
+		System.out.println("Setting address city");
 		this.city = city;
 	}
 
@@ -39,6 +45,7 @@ public class Address {
 	}
 
 	public void setCountry(String country) {
+		System.out.println("Setting address country");
 		this.country = country;
 	}
 
@@ -47,7 +54,26 @@ public class Address {
 	}
 
 	public void setPinCode(int pinCode) {
+		System.out.println("Setting address pinCode");
 		this.pinCode = pinCode;
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("InitializingBean::afterPropertiesSet()");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("DisposableBean::destroy() for address");
+	}
+
+	public void initMethod() {
+		System.out.println("Custom init method for address");
+	}
+
+	public void destroyMethod() {
+		System.out.println("Custom destroy method for address");
 	}
 
 }
